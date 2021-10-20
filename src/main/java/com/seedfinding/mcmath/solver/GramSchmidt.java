@@ -1,15 +1,15 @@
-package kaptainwutax.mathutils.solver;
+package com.seedfinding.mcmath.solver;
 
-import kaptainwutax.mathutils.arithmetic.Rational;
-import kaptainwutax.mathutils.component.matrix.QMatrix;
-import kaptainwutax.mathutils.component.vector.QVector;
+import com.seedfinding.mcmath.arithmetic.Rational;
+import com.seedfinding.mcmath.component.matrix.QMatrix;
+import com.seedfinding.mcmath.component.vector.QVector;
 
 public class GramSchmidt {
 
 	public static void main(String[] args) {
 		QMatrix m = new QMatrix(
-				new QVector(4, 3),
-				new QVector(-1, 6)
+			new QVector(4, 3),
+			new QVector(-1, 6)
 		).transpose();
 
 		System.out.println(apply(m));

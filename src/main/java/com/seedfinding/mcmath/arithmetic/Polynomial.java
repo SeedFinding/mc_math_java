@@ -1,4 +1,4 @@
-package kaptainwutax.mathutils.arithmetic;
+package com.seedfinding.mcmath.arithmetic;
 
 import java.util.Arrays;
 
@@ -52,13 +52,13 @@ public class Polynomial {
 	}
 
 	public Polynomial differentiate() {
-		if(this.derivative != null)return this.derivative;
-		if(this.degree <= 0)return new Polynomial(Rational.ZERO, 0);
+		if(this.derivative != null) return this.derivative;
+		if(this.degree <= 0) return new Polynomial(Rational.ZERO, 0);
 
 		Polynomial r = new Polynomial(Rational.ZERO, this.degree - 1);
 
 		for(int e = 1; e < this.degree; e++) {
-			r.coefficients[e - 1] =  this.coefficients[e].multiply(e);
+			r.coefficients[e - 1] = this.coefficients[e].multiply(e);
 		}
 
 		return this.derivative = r;
@@ -67,7 +67,7 @@ public class Polynomial {
 	public Polynomial add(Polynomial other) {
 		Polynomial r = new Polynomial(Rational.ZERO, Math.max(this.degree, other.degree));
 
-		for (int i = 0; i <= r.degree; i++) {
+		for(int i = 0; i <= r.degree; i++) {
 			if(i <= this.degree) {
 				r.coefficients[i] = this.coefficients[i];
 			}
@@ -112,13 +112,13 @@ public class Polynomial {
 
 	@Override
 	public boolean equals(Object other) {
-		if(this == other)return true;
-		if(!(other instanceof Polynomial))return false;
+		if(this == other) return true;
+		if(!(other instanceof Polynomial)) return false;
 		Polynomial polynomial = (Polynomial)other;
-		if(this.degree != polynomial.degree)return false;
+		if(this.degree != polynomial.degree) return false;
 
 		for(int i = 0; i < this.getDegree(); i++) {
-			if(this.getCoefficient(i).compareTo(polynomial.getCoefficient(i)) != 0)return false;
+			if(this.getCoefficient(i).compareTo(polynomial.getCoefficient(i)) != 0) return false;
 		}
 
 		return true;
@@ -145,7 +145,7 @@ public class Polynomial {
 
 			if(i != 0) {
 				sb.append("x");
-				if(i != 1)sb.append("^").append(i);
+				if(i != 1) sb.append("^").append(i);
 			}
 		}
 

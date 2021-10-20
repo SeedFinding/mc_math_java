@@ -1,9 +1,9 @@
-package kaptainwutax.mathutils.decomposition;
+package com.seedfinding.mcmath.decomposition;
 
-import kaptainwutax.mathutils.arithmetic.Rational;
-import kaptainwutax.mathutils.arithmetic.Real;
-import kaptainwutax.mathutils.component.matrix.QMatrix;
-import kaptainwutax.mathutils.component.matrix.RMatrix;
+import com.seedfinding.mcmath.arithmetic.Rational;
+import com.seedfinding.mcmath.arithmetic.Real;
+import com.seedfinding.mcmath.component.matrix.QMatrix;
+import com.seedfinding.mcmath.component.matrix.RMatrix;
 
 public class LUDecomposition {
 
@@ -60,9 +60,9 @@ public class LUDecomposition {
 		}
 
 		public QMatrix getP() {
-			if(this.P != null)return this.P;
+			if(this.P != null) return this.P;
 			int[] pivot = this.getPivot();
-			if(pivot == null)return null;
+			if(pivot == null) return null;
 
 			this.P = QMatrix.identity(this.size);
 
@@ -74,17 +74,17 @@ public class LUDecomposition {
 		}
 
 		public QMatrix getL() {
-			if(this.L != null)return this.L;
+			if(this.L != null) return this.L;
 			QMatrix lu = this.getLU();
-			if(lu == null)return null;
+			if(lu == null) return null;
 			return this.L = lu.map((row, column, oldValue) -> row > column ? oldValue :
-					row == column ? Rational.ONE : Rational.ZERO);
+				row == column ? Rational.ONE : Rational.ZERO);
 		}
 
 		public QMatrix getU() {
-			if(this.U != null)return this.U;
+			if(this.U != null) return this.U;
 			QMatrix lu = this.getLU();
-			if(lu == null)return null;
+			if(lu == null) return null;
 			return this.U = lu.map((row, col, oldValue) -> row <= col ? oldValue : Rational.ZERO);
 		}
 
@@ -94,7 +94,7 @@ public class LUDecomposition {
 		}
 
 		public QMatrix getLU() {
-			if(this.LU != null || this.singular)return this.LU;
+			if(this.LU != null || this.singular) return this.LU;
 			this.LU = this.matrix.copy();
 			this.pivot = new int[this.size];
 			this.swaps = 0;
@@ -144,19 +144,19 @@ public class LUDecomposition {
 		}
 
 		public int getSwaps() {
-			if(this.LU != null)return this.swaps;
+			if(this.LU != null) return this.swaps;
 			this.getLU(); //Compute LU, singular, swaps and pivot.
 			return this.swaps;
 		}
 
 		public int[] getPivot() {
-			if(this.pivot != null)return this.pivot;
+			if(this.pivot != null) return this.pivot;
 			this.getLU(); //Compute LU, singular, swaps and pivot.
 			return this.pivot;
 		}
 
 		public Rational getDeterminant() {
-			if(this.det != null)return this.det;
+			if(this.det != null) return this.det;
 			QMatrix lu = this.getLU();
 
 			if(!this.isSingular()) {
@@ -177,9 +177,9 @@ public class LUDecomposition {
 		}
 
 		public QMatrix getInverse() {
-			if(this.inv != null)return this.inv;
+			if(this.inv != null) return this.inv;
 			QMatrix lu = this.getLU();
-			if(lu == null)return null;
+			if(lu == null) return null;
 
 			this.inv = this.getP().copy();
 
@@ -256,9 +256,9 @@ public class LUDecomposition {
 		}
 
 		public RMatrix getP() {
-			if(this.P != null)return this.P;
+			if(this.P != null) return this.P;
 			int[] pivot = this.getPivot();
-			if(pivot == null)return null;
+			if(pivot == null) return null;
 
 			this.P = RMatrix.identity(this.size);
 
@@ -270,17 +270,17 @@ public class LUDecomposition {
 		}
 
 		public RMatrix getL() {
-			if(this.L != null)return this.L;
+			if(this.L != null) return this.L;
 			RMatrix lu = this.getLU();
-			if(lu == null)return null;
+			if(lu == null) return null;
 			return this.L = lu.map((row, column, oldValue) -> row > column ? oldValue :
-					row == column ? Real.ONE : Real.ZERO);
+				row == column ? Real.ONE : Real.ZERO);
 		}
 
 		public RMatrix getU() {
-			if(this.U != null)return this.U;
+			if(this.U != null) return this.U;
 			RMatrix lu = this.getLU();
-			if(lu == null)return null;
+			if(lu == null) return null;
 			return this.U = lu.map((row, col, oldValue) -> row <= col ? oldValue : Real.ZERO);
 		}
 
@@ -290,7 +290,7 @@ public class LUDecomposition {
 		}
 
 		public RMatrix getLU() {
-			if(this.LU != null || this.singular)return this.LU;
+			if(this.LU != null || this.singular) return this.LU;
 			this.LU = this.matrix.copy();
 			this.pivot = new int[this.size];
 			this.swaps = 0;
@@ -340,19 +340,19 @@ public class LUDecomposition {
 		}
 
 		public int getSwaps() {
-			if(this.LU != null)return this.swaps;
+			if(this.LU != null) return this.swaps;
 			this.getLU(); //Compute LU, singular, swaps and pivot.
 			return this.swaps;
 		}
 
 		public int[] getPivot() {
-			if(this.pivot != null)return this.pivot;
+			if(this.pivot != null) return this.pivot;
 			this.getLU(); //Compute LU, singular, swaps and pivot.
 			return this.pivot;
 		}
 
 		public Real getDeterminant() {
-			if(this.det != null)return this.det;
+			if(this.det != null) return this.det;
 			RMatrix lu = this.getLU();
 
 			if(!this.isSingular()) {
@@ -373,9 +373,9 @@ public class LUDecomposition {
 		}
 
 		public RMatrix getInverse() {
-			if(this.inv != null)return this.inv;
+			if(this.inv != null) return this.inv;
 			RMatrix lu = this.getLU();
-			if(lu == null)return null;
+			if(lu == null) return null;
 
 			this.inv = this.getP().copy();
 

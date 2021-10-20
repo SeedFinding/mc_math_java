@@ -1,8 +1,8 @@
-package kaptainwutax.mathutils.solver;
+package com.seedfinding.mcmath.solver;
 
-import kaptainwutax.mathutils.arithmetic.Rational;
-import kaptainwutax.mathutils.component.matrix.QMatrix;
-import kaptainwutax.mathutils.component.vector.QVector;
+import com.seedfinding.mcmath.arithmetic.Rational;
+import com.seedfinding.mcmath.component.matrix.QMatrix;
+import com.seedfinding.mcmath.component.vector.QVector;
 
 public class GaussJordan {
 
@@ -44,7 +44,7 @@ public class GaussJordan {
 
 			for(int i = row + 1; i < matrix.getRowCount(); i++) {
 				Rational value = matrix.get(i, column);
-				if(value.equals(Rational.ZERO))continue;
+				if(value.equals(Rational.ZERO)) continue;
 				matrix.getRow(i).subtractAndSet(main.scale(value));
 			}
 
@@ -55,13 +55,13 @@ public class GaussJordan {
 		if(reduced) {
 			for(int columnPivot = column - 1; columnPivot >= 0; columnPivot--) {
 				int pivot = pivots[columnPivot];
-				if(pivot == -1)continue;
+				if(pivot == -1) continue;
 
 				QVector main = matrix.getRow(pivot);
 
 				for(int i = 0; i < pivot; i++) {
 					Rational value = matrix.get(i, columnPivot);
-					if(value.equals(Rational.ZERO))continue;
+					if(value.equals(Rational.ZERO)) continue;
 					matrix.getRow(i).subtractAndSet(main.scale(value));
 				}
 			}
