@@ -109,8 +109,8 @@ publishing {
 	}
 	repositories {
 		maven {
-			def releasesRepoUrl = "https://nexus.seedfinding.com/service/rest/repository/browse/maven-seedfinding/com/seedfinding/mcmath/"
-			def snapshotsRepoUrl = "https://nexus.seedfinding.com/service/rest/repository/browse/maven-seedfinding-snapshots/com/seedfinding/mcmath/"
+			def releasesRepoUrl = "https://nexus.seedfinding.com/service/rest/repository/browse/maven-seedfinding/com/seedfinding/mc_math/"
+			def snapshotsRepoUrl = "https://nexus.seedfinding.com/service/rest/repository/browse/maven-seedfinding-snapshots/com/seedfinding/mc_math/"
 			url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 		}
 	}
