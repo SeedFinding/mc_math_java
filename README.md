@@ -1,6 +1,6 @@
 # Minecraft Math
 
-A Java library that exposes utilities to use in the context of Minecraft generation,
+A Java library that exposes math utilities to use in the context of Minecraft generation,
 seedfinding and seedcracking.
 
 ## Legal mentions

@@ -21,8 +21,8 @@ java {
 
 repositories {
 	mavenCentral()
-	maven { url "https://jitpack.io" }
-	maven { url "https://maven.seedfinding.com" }
+	// Use maven { url "https://maven.seedfinding.com" } for releases !
+	// Use maven { url "https://maven-snapshots.seedfinding.com" } for snapshots
 }
 
 dependencies {
