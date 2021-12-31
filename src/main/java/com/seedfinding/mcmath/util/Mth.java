@@ -50,13 +50,23 @@ public final class Mth {
 		return modInverse(value, 64);
 	}
 
-	public static long modInverse(long value, int k) {
+	@Deprecated
+	public static long modInverseOld(long value, int bits) {
 		long x = ((((value << 1) ^ value) & 4) << 1) ^ value;
 		x += x - value * x * x;
 		x += x - value * x * x;
 		x += x - value * x * x;
 		x += x - value * x * x;
-		return mask(x, k);
+		return mask(x, bits);
+	}
+
+	public static long modInverse(long value, int bits) {
+		long x = ((((value << 1) ^ value) & 4) << 1) ^ value;
+		x *= 2 - value * x;
+		x *= 2 - value * x;
+		x *= 2 - value * x;
+		x *= 2 - value * x;
+		return mask(x, bits);
 	}
 
 	public static int min(int... values) {

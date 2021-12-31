@@ -32,6 +32,7 @@ dependencies {
 
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}")
 	testRuntimeOnly('org.junit.platform:junit-platform-console:1.7.1')
+
 }
 
 compileJava {
