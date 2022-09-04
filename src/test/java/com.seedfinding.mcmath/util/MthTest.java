@@ -51,10 +51,10 @@ public class MthTest {
 
 	public Runnable modInverseRunnable(BiFunction<Long,Integer,Long> fn){
 		return ()-> {
-			assertEquals(fn.apply(11L, 64),3353953467947191203L,"Modular inverse of 10 mod 2^64 failed");
-			assertEquals(fn.apply(11L, 32),3123612579L,"Modular inverse of 10 mod 2^32 failed");
-			assertEquals(fn.apply(11L, 16),35747L,"Modular inverse of 10 mod 2^16 failed");
-			assertEquals(fn.apply(11L, 8),163L,"Modular inverse of 10 mod 2^8 failed");
+			assertEquals(fn.apply(11L, 64),3353953467947191203L,"Modular inverse of 11 mod 2^64 failed");
+			assertEquals(fn.apply(11L, 32),3123612579L,"Modular inverse of 11 mod 2^32 failed");
+			assertEquals(fn.apply(11L, 16),35747L,"Modular inverse of 11 mod 2^16 failed");
+			assertEquals(fn.apply(11L, 8),163L,"Modular inverse of 11 mod 2^8 failed");
 		};
 	}
 }
